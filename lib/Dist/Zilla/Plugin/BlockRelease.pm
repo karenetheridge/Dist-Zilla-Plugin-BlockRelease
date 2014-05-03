@@ -1,15 +1,18 @@
 use strict;
 use warnings;
 package Dist::Zilla::Plugin::BlockRelease;
-# ABSTRACT: ...
+# ABSTRACT: Prevent a release from occurring
 # vim: set ts=8 sw=4 tw=78 et :
 
 use Moose;
-with 'Dist::Zilla::Role::...';
-
+with 'Dist::Zilla::Role::BeforeRelease';
 use namespace::autoclean;
 
-
+sub before_release
+{
+    my $self = shift;
+    $self->log_fatal('halting release');
+}
 
 __PACKAGE__->meta->make_immutable;
 __END__
@@ -24,13 +27,14 @@ In your F<dist.ini>:
 
 =head1 DESCRIPTION
 
-This is a L<Dist::Zilla> plugin that...
+This plugin, when loaded, prevents C<dzil release> from completing. It is
+useful to include temporarily, while developing (perhaps while using some
+development-only requirements or code, to guard against an accidental release.
 
-=head1 CONFIGURATION OPTIONS
+Load it last to allow all other C<BeforeRelease> plugins to still perform
+their checks, or first to stop these pre-release checks from occurring.
 
-=head2 C<foo>
-
-...
+=for Pod::Coverage before_release
 
 =head1 SUPPORT
 
@@ -39,17 +43,5 @@ This is a L<Dist::Zilla> plugin that...
 Bugs may be submitted through L<the RT bug tracker|https://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-BlockRelease>
 (or L<bug-Dist-Zilla-Plugin-BlockRelease@rt.cpan.org|mailto:bug-Dist-Zilla-Plugin-BlockRelease@rt.cpan.org>).
 I am also usually active on irc, as 'ether' at C<irc.perl.org>.
-
-=head1 ACKNOWLEDGEMENTS
-
-...
-
-=head1 SEE ALSO
-
-=begin :list
-
-* L<foo>
-
-=end :list
 
 =cut
