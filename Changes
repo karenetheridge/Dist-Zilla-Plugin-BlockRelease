@@ -1,5 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.001     2014-05-03 22:56:37Z
           - Initial release, split out from
             Dist-Zilla-PluginBundle-Author-ETHER.
