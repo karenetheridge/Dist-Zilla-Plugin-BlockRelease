@@ -1,4 +1,5 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
-          - Initial release.
+          - Initial release, split out from
+            Dist-Zilla-PluginBundle-Author-ETHER.
