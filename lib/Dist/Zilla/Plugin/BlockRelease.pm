@@ -9,6 +9,9 @@ use Moose;
 with 'Dist::Zilla::Role::BeforeRelease';
 use namespace::autoclean;
 
+# nothing to put in dump_config yet...
+# around dump_config => sub { ... };
+
 sub before_release
 {
     my $self = shift;
