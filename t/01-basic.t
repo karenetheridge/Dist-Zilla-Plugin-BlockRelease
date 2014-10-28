@@ -21,6 +21,7 @@ my $tzil = Builder->from_config(
     },
 );
 
+$tzil->chrome->logger->set_debug(1);
 is(
     exception { $tzil->build },
     undef,
@@ -32,5 +33,8 @@ like(
     qr{\[BlockRelease\] halting release},
     'release halts',
 );
+
+diag 'got log messages: ', explain $tzil->log_messages
+    if not Test::Builder->new->is_passing;
 
 done_testing;
