@@ -14,7 +14,6 @@ my $tzil = Builder->from_config(
             path(qw(source dist.ini)) => simple_ini(
                 [ GatherDir => ],
                 [ BlockRelease => ],
-                [ FakeRelease => ],
             ),
             path(qw(source lib Foo.pm)) => "package Foo;\n1;\n",
         },

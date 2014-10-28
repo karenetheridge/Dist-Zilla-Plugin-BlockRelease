@@ -6,7 +6,9 @@ package Dist::Zilla::Plugin::BlockRelease;
 # vim: set ts=8 sw=4 tw=78 et :
 
 use Moose;
-with 'Dist::Zilla::Role::BeforeRelease';
+with 'Dist::Zilla::Role::BeforeRelease',
+    'Dist::Zilla::Role::Releaser';
+
 use namespace::autoclean;
 
 # nothing to put in dump_config yet...
@@ -17,6 +19,8 @@ sub before_release
     my $self = shift;
     $self->log_fatal('halting release');
 }
+
+sub release {}
 
 __PACKAGE__->meta->make_immutable;
 __END__
@@ -38,7 +42,7 @@ development-only requirements or code, to guard against an accidental release.
 Load it last to allow all other C<BeforeRelease> plugins to still perform
 their checks, or first to stop these pre-release checks from occurring.
 
-=for Pod::Coverage before_release
+=for Pod::Coverage before_release release
 
 =head1 SUPPORT
 
