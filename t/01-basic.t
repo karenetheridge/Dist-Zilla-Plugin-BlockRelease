@@ -6,6 +6,7 @@ use if $ENV{AUTHOR_TESTING}, 'Test::Warnings';
 use Test::DZil;
 use Path::Tiny;
 use Test::Fatal;
+use Test::Deep;
 
 my $tzil = Builder->from_config(
     { dist_root => 't/does-not-exist' },
@@ -31,6 +32,12 @@ like(
     exception { $tzil->release },
     qr{\[BlockRelease\] halting release},
     'release halts',
+);
+
+cmp_deeply(
+    $tzil->log_messages,
+    superbagof('[BlockRelease] releases will be prevented!'),
+    'got a warning about releases being prevented',
 );
 
 diag 'got log messages: ', explain $tzil->log_messages

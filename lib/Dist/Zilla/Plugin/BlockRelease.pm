@@ -11,6 +11,12 @@ with 'Dist::Zilla::Role::BeforeRelease',
 
 use namespace::autoclean;
 
+sub BUILD
+{
+    my $self = shift;
+    $self->log('releases will be prevented!');
+}
+
 # nothing to put in dump_config yet...
 # around dump_config => sub { ... };
 
@@ -42,7 +48,7 @@ development-only requirements or code, to guard against an accidental release.
 Load it last to allow all other C<BeforeRelease> plugins to still perform
 their checks, or first to stop these pre-release checks from occurring.
 
-=for Pod::Coverage before_release release
+=for Pod::Coverage BUILD before_release release
 
 =head1 SUPPORT
 

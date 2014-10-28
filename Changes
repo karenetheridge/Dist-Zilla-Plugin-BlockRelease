@@ -3,6 +3,7 @@ Revision history for {{$dist->name}}
 {{$NEXT}}
           - implement Releaser role so as to not force the use of another
             Releaser plugin
+          - warn at the start of the build that releases will be prevented
 
 0.001     2014-05-03 22:56:37Z
           - Initial release, split out from
