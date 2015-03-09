@@ -3,7 +3,7 @@ use warnings;
 package Dist::Zilla::Plugin::BlockRelease;
 # ABSTRACT: Prevent a release from occurring
 # KEYWORDS: plugin distribution release sanity safety prevent
-# vim: set ts=8 sw=4 tw=78 et :
+# vim: set ts=8 sts=4 sw=4 tw=78 et :
 
 use Moose;
 with 'Dist::Zilla::Role::BeforeRelease',
