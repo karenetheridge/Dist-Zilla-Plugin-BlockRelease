@@ -5,6 +5,8 @@ package Dist::Zilla::Plugin::BlockRelease;
 # KEYWORDS: plugin distribution release sanity safety prevent
 # vim: set ts=8 sts=4 sw=4 tw=78 et :
 
+our $VERSION = '0.003';
+
 use Moose;
 with 'Dist::Zilla::Role::BeforeRelease',
     'Dist::Zilla::Role::Releaser';
