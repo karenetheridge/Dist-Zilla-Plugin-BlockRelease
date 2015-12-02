@@ -1,6 +1,6 @@
 Revision history for Dist-Zilla-Plugin-BlockRelease
 
-{{$NEXT}}
+0.003     2015-12-02 03:05:52Z
           - use ANSI colours in log messages for visibility
 
 0.002     2014-10-28 02:24:55Z
