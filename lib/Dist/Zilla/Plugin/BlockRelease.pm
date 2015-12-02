@@ -11,6 +11,7 @@ use Moose;
 with 'Dist::Zilla::Role::BeforeRelease',
     'Dist::Zilla::Role::Releaser';
 
+use Term::ANSIColor 3.00 'colored';
 use namespace::autoclean;
 
 sub BUILD
@@ -35,7 +36,7 @@ around dump_config => sub
 sub before_release
 {
     my $self = shift;
-    $self->log_fatal('halting release');
+    $self->log_fatal(colored('halting release', 'yellow'));
 }
 
 sub release {}

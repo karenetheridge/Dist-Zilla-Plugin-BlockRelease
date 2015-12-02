@@ -7,6 +7,7 @@ use Test::DZil;
 use Path::Tiny;
 use Test::Fatal;
 use Test::Deep;
+use Term::ANSIColor 2.01 'colorstrip';
 
 my $tzil = Builder->from_config(
     { dist_root => 'does-not-exist' },
@@ -29,7 +30,7 @@ is(
 );
 
 like(
-    exception { $tzil->release },
+    colorstrip(exception { $tzil->release }),
     qr{\[BlockRelease\] halting release},
     'release halts',
 );

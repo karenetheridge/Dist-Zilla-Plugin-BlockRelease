@@ -1,6 +1,7 @@
 Revision history for Dist-Zilla-Plugin-BlockRelease
 
 {{$NEXT}}
+          - use ANSI colours in log messages for visibility
 
 0.002     2014-10-28 02:24:55Z
           - implement Releaser role so as to not force the use of another
