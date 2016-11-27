@@ -1,9 +1,9 @@
 use strict;
 use warnings;
 package Dist::Zilla::Plugin::BlockRelease;
+# vim: set ts=8 sts=4 sw=4 tw=115 et :
 # ABSTRACT: Prevent a release from occurring
 # KEYWORDS: plugin distribution release sanity safety prevent
-# vim: set ts=8 sts=4 sw=4 tw=115 et :
 
 our $VERSION = '0.004';
 
