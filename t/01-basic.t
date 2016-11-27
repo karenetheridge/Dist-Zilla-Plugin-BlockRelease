@@ -36,8 +36,11 @@ like(
 );
 
 cmp_deeply(
-    $tzil->log_messages,
-    superbagof('[BlockRelease] releases will be prevented!'),
+    [ map { colorstrip($_) } grep { /^\[BlockRelease\]/ } @{ $tzil->log_messages } ],
+    [
+        '[BlockRelease] releases will be prevented!',
+        '[BlockRelease] halting release',
+    ],
     'got a warning about releases being prevented',
 );
 
