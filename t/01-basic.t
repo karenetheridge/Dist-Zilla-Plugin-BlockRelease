@@ -36,7 +36,7 @@ like(
 );
 
 cmp_deeply(
-    [ map { colorstrip($_) } grep { /^\[BlockRelease\]/ } @{ $tzil->log_messages } ],
+    [ map colorstrip($_), grep /^\[BlockRelease\]/, @{ $tzil->log_messages } ],
     [
         '[BlockRelease] releases will be prevented!',
         '[BlockRelease] halting release',
